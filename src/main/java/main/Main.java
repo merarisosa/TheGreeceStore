@@ -4,12 +4,21 @@
  */
 package main;
 
+import vista.Login;
+import vista.Inicio;
+
 /**
  *
  * @author merarimaysosa
  */
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Login login = new Login();
+
+        Inicio wallpaper_inicio = new Inicio();
+        wallpaper_inicio.setVisible(true);
+
     }
 }
