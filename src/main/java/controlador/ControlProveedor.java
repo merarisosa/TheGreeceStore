@@ -31,7 +31,7 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Categoria WHERE Cat_Folio='" + id + "'");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM Proveedor WHERE Prov_RFC='" + id + "'");
       if (resultado.next()) {
         return new Proveedor(
           id,

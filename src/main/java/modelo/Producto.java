@@ -32,6 +32,10 @@ public class Producto {
     this.categoria = categoria;
   }
 
+  public Producto(String clave) {
+      this.clave = clave;
+  }
+
   public String getClave() {
     return clave;
   }
