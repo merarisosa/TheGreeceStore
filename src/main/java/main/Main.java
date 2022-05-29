@@ -4,6 +4,8 @@
  */
 package main;
 
+import database.Conexion;
+
 /**
  *
  * @author merarimaysosa
@@ -11,5 +13,7 @@ package main;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        Conexion con = new Conexion();
+        System.out.println(con.conectar() ? "Si se pudo!" : "Fail..");
     }
 }
