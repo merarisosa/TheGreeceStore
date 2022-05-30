@@ -194,7 +194,7 @@ public class Login_Vendedor extends javax.swing.JFrame {
     private void ver_usuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_usuActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin_Usuarios().setVisible(true);
+        new Admin_Clientes().setVisible(true);
     }//GEN-LAST:event_ver_usuActionPerformed
 
     /**

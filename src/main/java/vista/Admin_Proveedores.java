@@ -39,6 +39,8 @@ public class Admin_Proveedores extends javax.swing.JFrame {
         busq = new javax.swing.JTextField();
         title = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +67,6 @@ public class Admin_Proveedores extends javax.swing.JFrame {
 
         eliminar.setText("Eliminar");
 
-        regresar.setBackground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return.png"))); // NOI18N
         regresar.setBorder(null);
         regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,15 +130,33 @@ public class Admin_Proveedores extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
@@ -181,8 +200,8 @@ public class Admin_Proveedores extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Inventario_Agregar().setVisible(true);
+ 
+
     }//GEN-LAST:event_agregarActionPerformed
 
     /**
@@ -235,6 +254,8 @@ public class Admin_Proveedores extends javax.swing.JFrame {
     private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel panel;
     private javax.swing.JButton regresar;
     private javax.swing.JLabel title;

@@ -49,12 +49,8 @@ public class Admin_Inventario extends javax.swing.JFrame {
         panel_prod = new javax.swing.JPanel();
         tabla_prod = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        panel_inv = new javax.swing.JPanel();
-        tabla_inv = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(745, 554));
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -79,7 +75,6 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
         eliminar.setText("Eliminar");
 
-        regresar.setBackground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/return.png"))); // NOI18N
         regresar.setBorder(null);
         regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -253,42 +248,6 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
         pestañas_grupo.addTab("Producto", panel_prod);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Folio", "Producto", "Cantidad", "FechaRegistro", "Cantidad"
-            }
-        ));
-        tabla_inv.setViewportView(jTable4);
-
-        javax.swing.GroupLayout panel_invLayout = new javax.swing.GroupLayout(panel_inv);
-        panel_inv.setLayout(panel_invLayout);
-        panel_invLayout.setHorizontalGroup(
-            panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 669, Short.MAX_VALUE)
-            .addGroup(panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_invLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(tabla_inv, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        panel_invLayout.setVerticalGroup(
-            panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 322, Short.MAX_VALUE)
-            .addGroup(panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panel_invLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(tabla_inv, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        pestañas_grupo.addTab("Inventario", panel_inv);
-
         javax.swing.GroupLayout panel_tableLayout = new javax.swing.GroupLayout(panel_table);
         panel_table.setLayout(panel_tableLayout);
         panel_tableLayout.setHorizontalGroup(
@@ -350,8 +309,7 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Inventario_Agregar().setVisible(true);
+
     }//GEN-LAST:event_agregarActionPerformed
 
     /**
@@ -402,17 +360,14 @@ public class Admin_Inventario extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JPanel panel;
     private javax.swing.JPanel panel_categ;
-    private javax.swing.JPanel panel_inv;
     private javax.swing.JPanel panel_prod;
     private javax.swing.JPanel panel_prov;
     private javax.swing.JPanel panel_table;
     private javax.swing.JTabbedPane pestañas_grupo;
     private javax.swing.JButton regresar;
     private javax.swing.JScrollPane tabla_categ;
-    private javax.swing.JScrollPane tabla_inv;
     private javax.swing.JScrollPane tabla_prod;
     private javax.swing.JScrollPane tabla_prov;
     private javax.swing.JLabel title;
