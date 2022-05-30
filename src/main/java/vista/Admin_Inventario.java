@@ -38,9 +38,23 @@ public class Admin_Inventario extends javax.swing.JFrame {
         regresar = new javax.swing.JButton();
         busq = new javax.swing.JTextField();
         title = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        panel_table = new javax.swing.JPanel();
+        pestañas_grupo = new javax.swing.JTabbedPane();
+        panel_categ = new javax.swing.JPanel();
+        tabla_categ = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        panel_prov = new javax.swing.JPanel();
+        tabla_prov = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        panel_prod = new javax.swing.JPanel();
+        tabla_prod = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        panel_inv = new javax.swing.JPanel();
+        tabla_inv = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(745, 554));
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -85,7 +99,7 @@ public class Admin_Inventario extends javax.swing.JFrame {
         botonesLayout.setHorizontalGroup(
             botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonesLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botonesLayout.createSequentialGroup()
                         .addComponent(title)
@@ -129,17 +143,167 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
         busq.getAccessibleContext().setAccessibleDescription("Buscar");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        panel_table.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabla_categ.setViewportView(jTable1);
+
+        javax.swing.GroupLayout panel_categLayout = new javax.swing.GroupLayout(panel_categ);
+        panel_categ.setLayout(panel_categLayout);
+        panel_categLayout.setHorizontalGroup(
+            panel_categLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(panel_categLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_categLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_categ, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+        panel_categLayout.setVerticalGroup(
+            panel_categLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
+            .addGroup(panel_categLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_categLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_categ, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        pestañas_grupo.addTab("Categoria", panel_categ);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabla_prov.setViewportView(jTable2);
+
+        javax.swing.GroupLayout panel_provLayout = new javax.swing.GroupLayout(panel_prov);
+        panel_prov.setLayout(panel_provLayout);
+        panel_provLayout.setHorizontalGroup(
+            panel_provLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(panel_provLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_provLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_prov, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_provLayout.setVerticalGroup(
+            panel_provLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
+            .addGroup(panel_provLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_provLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_prov, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        pestañas_grupo.addTab("Proveedor", panel_prov);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabla_prod.setViewportView(jTable3);
+
+        javax.swing.GroupLayout panel_prodLayout = new javax.swing.GroupLayout(panel_prod);
+        panel_prod.setLayout(panel_prodLayout);
+        panel_prodLayout.setHorizontalGroup(
+            panel_prodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(panel_prodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_prodLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_prod, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_prodLayout.setVerticalGroup(
+            panel_prodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
+            .addGroup(panel_prodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_prodLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_prod, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        pestañas_grupo.addTab("Producto", panel_prod);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Folio", "Producto", "Cantidad", "FechaRegistro", "Cantidad"
+            }
+        ));
+        tabla_inv.setViewportView(jTable4);
+
+        javax.swing.GroupLayout panel_invLayout = new javax.swing.GroupLayout(panel_inv);
+        panel_inv.setLayout(panel_invLayout);
+        panel_invLayout.setHorizontalGroup(
+            panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_invLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_inv, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panel_invLayout.setVerticalGroup(
+            panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
+            .addGroup(panel_invLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_invLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(tabla_inv, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        pestañas_grupo.addTab("Inventario", panel_inv);
+
+        javax.swing.GroupLayout panel_tableLayout = new javax.swing.GroupLayout(panel_table);
+        panel_table.setLayout(panel_tableLayout);
+        panel_tableLayout.setHorizontalGroup(
+            panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_tableLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(pestañas_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        panel_tableLayout.setVerticalGroup(
+            panel_tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_tableLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(pestañas_grupo, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
@@ -147,14 +311,15 @@ public class Admin_Inventario extends javax.swing.JFrame {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(botones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_table, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addComponent(botones, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,7 +330,9 @@ public class Admin_Inventario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -232,9 +399,22 @@ public class Admin_Inventario extends javax.swing.JFrame {
     private javax.swing.JTextField busq;
     private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JPanel panel;
+    private javax.swing.JPanel panel_categ;
+    private javax.swing.JPanel panel_inv;
+    private javax.swing.JPanel panel_prod;
+    private javax.swing.JPanel panel_prov;
+    private javax.swing.JPanel panel_table;
+    private javax.swing.JTabbedPane pestañas_grupo;
     private javax.swing.JButton regresar;
+    private javax.swing.JScrollPane tabla_categ;
+    private javax.swing.JScrollPane tabla_inv;
+    private javax.swing.JScrollPane tabla_prod;
+    private javax.swing.JScrollPane tabla_prov;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
