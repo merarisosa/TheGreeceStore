@@ -4,6 +4,11 @@
  */
 package vista;
 
+import controlador.ControlRolUsuario;
+import controlador.ControlUsuario;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+
 /**
  *
  * @author merarimaysosa
@@ -179,9 +184,17 @@ public class Login extends javax.swing.JFrame {
 
     private void iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciar_sesionActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Login_Admin().setVisible(true);
-        
+        String nombre = this.re_user.getText();
+        String pwdUsu = new String(this.re_pwd.getPassword());
+        ControlUsuario controlUsu = new ControlUsuario();
+        Usuario usuario = controlUsu.consultar(nombre, pwdUsu);
+        if(controlUsu.login(usuario)){
+          ControlRolUsuario controlRol = new ControlRolUsuario();
+          controlRol.accesoPorRol(usuario, this);
+        }else{
+          JOptionPane.showMessageDialog(this, "No existe el usuario, verifique sus datos.", "ERROR", 
+                  JOptionPane.ERROR_MESSAGE);
+        }        
     }//GEN-LAST:event_iniciar_sesionActionPerformed
 
     /**

@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import modelo.RolUsuario;
+import modelo.Usuario;
 import vista.Admin_Inventario;
 import vista.Admin_Reportes;
 import vista.Login;
@@ -29,12 +30,12 @@ import vista.Login_Admin;
 public class ControlRolUsuario implements DAORolUsuario{
 
   @Override
-  public void accesoPorRol(RolUsuario rol, JFrame anterior) {
-    String id = rol.getFolioRol();
+  public void accesoPorRol(Usuario usuario, JFrame anterior) {
+    String id = usuario.getRol().getFolioRol();
     JFrame siguiente = new JFrame();
     switch(id){
       case "ROL-00001":
-        siguiente = new Login_Admin();
+        siguiente = new Login_Admin(usuario);
         break;
       case "ROL-00002":
 //        siguiente = new Venta();
@@ -55,10 +56,10 @@ public class ControlRolUsuario implements DAORolUsuario{
 
   @Override
   public RolUsuario consultar(String id) {
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       ResultSet resultado = stmt.executeQuery("SELECT * FROM Rol_Usuario WHERE RolUsu_Folio='"+id+"'");
@@ -93,10 +94,10 @@ public class ControlRolUsuario implements DAORolUsuario{
   @Override
   public List<RolUsuario> listarTodos() {
     LinkedList<RolUsuario> lista = new LinkedList<>();
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       ResultSet resultado = stmt.executeQuery("SELECT * FROM Rol_usuario");

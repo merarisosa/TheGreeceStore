@@ -7,11 +7,12 @@ package dao;
 
 import javax.swing.JFrame;
 import modelo.RolUsuario;
+import modelo.Usuario;
 
 /**
  *
  * @author MagicPOS
  */
 public interface DAORolUsuario extends DAOGeneral<RolUsuario,String>{
-  public void accesoPorRol(RolUsuario rol, JFrame anterior);
+  public void accesoPorRol(Usuario usuario, JFrame anterior);
 }

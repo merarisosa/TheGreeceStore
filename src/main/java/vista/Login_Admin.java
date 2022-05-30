@@ -4,19 +4,26 @@
  */
 package vista;
 
+import modelo.Usuario;
+
 /**
  *
  * @author merarimaysosa
  */
 public class Login_Admin extends javax.swing.JFrame {
+    
+    private final Usuario usuario;
 
     /**
      * Creates new form login_admin
+   * @param usuario
      */
-    public Login_Admin() {
+    public Login_Admin(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.user_nombre.setText("Hola, "+this.usuario.getNombre());
     }
 
     /**

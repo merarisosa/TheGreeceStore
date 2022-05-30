@@ -30,10 +30,10 @@ public class ControlUsuario implements DAOUsuario{
 
   @Override
   public Usuario consultar(String id) {
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       ResultSet resultado = stmt.executeQuery("SELECT * FROM Usuario WHERE Usu_Folio='"+id+"'");
@@ -56,10 +56,10 @@ public class ControlUsuario implements DAOUsuario{
   
   public Usuario consultar(String nombre, String password){
     String pwdEncrypt = Util.encriptar(password);
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       ResultSet resultado = stmt.executeQuery("SELECT * FROM Usuario WHERE "
@@ -83,10 +83,10 @@ public class ControlUsuario implements DAOUsuario{
 
   @Override
   public boolean eliminar(String id) {
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       stmt.executeUpdate("DELETE FROM Usuario WHERE Usu_Folio='"+id+"'");
@@ -100,10 +100,10 @@ public class ControlUsuario implements DAOUsuario{
 
   @Override
   public boolean actualizar(Usuario entidad) {
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       stmt.executeUpdate("UPDATE Usuario SET Usu_Nombre = '"+entidad.getNombre()+"'"
@@ -118,10 +118,10 @@ public class ControlUsuario implements DAOUsuario{
 
   @Override
   public boolean insertar(Usuario entidad) {
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       stmt.executeUpdate("INSERT INTO Usuario "
@@ -140,10 +140,10 @@ public class ControlUsuario implements DAOUsuario{
   @Override
   public List<Usuario> listarTodos() {
     LinkedList<Usuario> lista = new LinkedList<>();
-    Conexion conexion = new Conexion();
-    conexion.conectar();
-    Connection con = conexion.getCon();
     try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
       ResultSet resultado = stmt.executeQuery("SELECT * FROM Usuario");
