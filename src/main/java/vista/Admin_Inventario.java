@@ -4,6 +4,15 @@
  */
 package vista;
 
+import controlador.ControlCategoria;
+import controlador.ControlProducto;
+import controlador.ControlProveedor;
+import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Categoria;
+import modelo.Producto;
+import modelo.Proveedor;
+
 /**
  *
  * @author merarimaysosa
@@ -18,6 +27,52 @@ public class Admin_Inventario extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
+        //Categoria
+        ControlCategoria categoria = new ControlCategoria();
+        String[] encabezados1 = {"Folio", "Nombre", "Descripción"};
+        DefaultTableModel dftModel1 = new DefaultTableModel(encabezados1,0);
+        LinkedList<Categoria> listaCategoria = (LinkedList<Categoria>) categoria.listarTodos();
+        for(Categoria cat: listaCategoria){
+         dftModel1.addRow(new Object[]{
+           cat.getFolio(),
+           cat.getNombre(),
+           cat.getDescripcion()
+         });
+        }
+        this.jTable1.setModel(dftModel1);
+        
+        //Proveedor
+        ControlProveedor proveedor = new ControlProveedor();
+        String[] encabezados2 = {"Folio", "Nombre", "Descripción"};
+        DefaultTableModel dftModel2 = new DefaultTableModel(encabezados2,0);
+        LinkedList<Proveedor> listaProveedor = (LinkedList<Proveedor>) proveedor.listarTodos();
+        for(Proveedor prov: listaProveedor){
+         dftModel2.addRow(new Object[]{
+           prov.getRfc(),
+           prov.getNombre(),
+           prov.getContactoNombre(),
+           prov.getContactoDesc(),
+           prov.getTelefono(),
+           prov.getCorreo()
+         });
+        }
+        this.jTable2.setModel(dftModel2);
+        
+        //Producto
+        ControlProducto producto = new ControlProducto();
+        String[] encabezados3 = {"Clave", "Nombre", "Medida", "Precio", "Cantidad"};
+        DefaultTableModel dftModel3 = new DefaultTableModel(encabezados3,0);
+        LinkedList<Producto> listaProducto = (LinkedList<Producto>) producto.listarTodos();
+        for(Producto prod: listaProducto){
+         dftModel3.addRow(new Object[]{
+           prod.getClave(),
+           prod.getNombre(),
+           prod.getMedidaDesc(),
+           prod.getPrecio(),
+           prod.getCantidad()
+         });
+        }
+        this.jTable3.setModel(dftModel3);
     }
 
     /**

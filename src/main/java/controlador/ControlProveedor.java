@@ -31,7 +31,7 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Proveedor WHERE Prov_RFC='" + id + "'");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM proveedor WHERE Prov_RFC='" + id + "'");
       if (resultado.next()) {
         return new Proveedor(
           id,
@@ -64,7 +64,7 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("DELETE FROM Proveedor WHERE Prov_RFC='" + id + "'");
+      stmt.executeUpdate("DELETE FROM proveedor WHERE Prov_RFC='" + id + "'");
       con.close();
       return true;
     } catch (SQLException ex) {
@@ -81,7 +81,7 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE Proveedor SET Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
+      stmt.executeUpdate("UPDATE proveedor SET Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
         + "Prov_ContactoDescripcion = '" + entidad.getContactoDesc() + "', "
         + "Prov_Calle = '" + entidad.getCalle() + "', "
         + "Prov_NumExt = '" + entidad.getNumExt() + "', "
@@ -109,7 +109,7 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("INSERT INTO Proveedor "
+      stmt.executeUpdate("INSERT INTO proveedor "
               + "VALUES ('" + entidad.getRfc() + "', "
               + "'" + entidad.getNombre() + "', "
               + "'" + entidad.getContactoNombre() + "', "
@@ -140,7 +140,7 @@ public class ControlProveedor implements DAOProveedor{
     try {
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Proveedor");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM proveedor");
       while (resultado.next()) {
         lista.add(new Proveedor(
           resultado.getString("Prov_RFC"),

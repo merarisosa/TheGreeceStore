@@ -22,6 +22,7 @@ import vista.Admin_Inventario;
 import vista.Admin_Reportes;
 import vista.Login;
 import vista.Login_Admin;
+import vista.Vendedor_Ventas;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ControlRolUsuario implements DAORolUsuario{
         siguiente = new Login_Admin(usuario);
         break;
       case "ROL-00002":
-//        siguiente = new Venta();
+        siguiente = new Vendedor_Ventas();
         break;
       case "ROL-00003":
         siguiente = new Admin_Inventario();

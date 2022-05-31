@@ -359,7 +359,7 @@ public class Login_Admin extends javax.swing.JFrame {
     private void ver_usuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_usuActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin_Clientes().setVisible(true);
+        new Admin_Usuarios().setVisible(true);
     }//GEN-LAST:event_ver_usuActionPerformed
 
     private void ver_invenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_invenActionPerformed
@@ -370,8 +370,8 @@ public class Login_Admin extends javax.swing.JFrame {
 
     private void ver_provActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_provActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Admin_Proveedores().setVisible(true);
+//        this.setVisible(false);
+//        new Admin_Proveedores().setVisible(true);
     }//GEN-LAST:event_ver_provActionPerformed
 
     private void ver_clienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_clienActionPerformed

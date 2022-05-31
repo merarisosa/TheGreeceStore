@@ -4,6 +4,13 @@
  */
 package vista;
 
+import controlador.ControlRolUsuario;
+import controlador.ControlUsuario;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Usuario;
+
 /**
  *
  * @author merarimaysosa
@@ -17,7 +24,20 @@ public class Admin_Usuarios extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        
+        ControlUsuario usuario = new ControlUsuario();
+        String[] encabezados = {"Folio", "Nombre", "Rol", "Contraseña"};
+        DefaultTableModel dftModel = new DefaultTableModel(encabezados,0);
+        LinkedList<Usuario> listaUsu = (LinkedList<Usuario>) usuario.listarTodos();
+        for(Usuario usu: listaUsu){
+         dftModel.addRow(new Object[]{
+           usu.getFolio(), 
+           usu.getNombre(),
+           usu.getRol().getFolioRol(),
+           usu.getPwd()
+           
+         });
+        }
+        this.jTable1.setModel(dftModel);
     }
 
     /**

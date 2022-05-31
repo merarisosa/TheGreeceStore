@@ -92,7 +92,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void iniciar_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciar_loginActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new Login().setVisible(true);
     }//GEN-LAST:event_iniciar_loginActionPerformed
 

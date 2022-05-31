@@ -33,7 +33,7 @@ public class ControlProducto implements DAOProducto{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Producto WHERE Prod_Clave='" + id + "'");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM producto WHERE Prod_Clave='" + id + "'");
       if (resultado.next()) {
         return new Producto(
           id,
@@ -62,7 +62,7 @@ public class ControlProducto implements DAOProducto{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("DELETE FROM Producto WHERE Prod_Clave='" + id + "'");
+      stmt.executeUpdate("DELETE FROM producto WHERE Prod_Clave='" + id + "'");
       con.close();
       return true;
     } catch (SQLException ex) {
@@ -79,7 +79,7 @@ public class ControlProducto implements DAOProducto{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE Producto SET Prod_Precio = '" + entidad.getPrecio() + "', "
+      stmt.executeUpdate("UPDATE producto SET Prod_Precio = '" + entidad.getPrecio() + "', "
         + "Prod_Cantidad = '" + entidad.getCantidad() + "', "
         + "Prod_LimiteStock = '" + entidad.getLimiteStock() + "', "
         + "Prod_Descontinuado = '" + entidad.getDescontinuado() + "' "
@@ -100,7 +100,7 @@ public class ControlProducto implements DAOProducto{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("INSERT INTO Producto "
+      stmt.executeUpdate("INSERT INTO producto "
         + "VALUES ('" + entidad.getClave() + "', "
         + "'" + entidad.getNombre() + "', "
         + "'" + entidad.getMedidaDesc() + "', "
@@ -128,7 +128,7 @@ public class ControlProducto implements DAOProducto{
     try {
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Producto");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM producto");
       while (resultado.next()) {
         lista.add(new Producto(
           resultado.getString("Prod_Clave"),

@@ -31,7 +31,7 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Categoria WHERE Cat_Folio='" + id + "'");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM categoria WHERE Cat_Folio='" + id + "'");
       if (resultado.next()) {
         return new Categoria(
           id,
@@ -54,7 +54,7 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("DELETE FROM Categoria WHERE Cat_Folio='" + id + "'");
+      stmt.executeUpdate("DELETE FROM categoria WHERE Cat_Folio='" + id + "'");
       con.close();
       return true;
     } catch (SQLException ex) {
@@ -71,7 +71,7 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE Categoria SET Cat_Descripcion = '" + entidad.getDescripcion() + "'"
+      stmt.executeUpdate("UPDATE categoria SET Cat_Descripcion = '" + entidad.getDescripcion() + "'"
         + "WHERE Cat_Folio = '" + entidad.getFolio() + "'");
       con.close();
       return true;
@@ -89,7 +89,7 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("INSERT INTO Categoria "
+      stmt.executeUpdate("INSERT INTO categoria "
         + "VALUES ('" + entidad.getFolio() + "', "
         + "'" + entidad.getNombre() + "', "
         + "'" + entidad.getDescripcion() + "');");
@@ -111,7 +111,7 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Categoria");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM categoria");
       while (resultado.next()) {
         lista.add(new Categoria(
           resultado.getString("Cat_Folio"),
