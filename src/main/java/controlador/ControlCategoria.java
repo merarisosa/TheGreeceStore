@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
 
 /**
@@ -124,6 +125,21 @@ public class ControlCategoria implements DAOCategoria{
       Logger.getLogger(ControlCategoria.class.getName()).log(Level.SEVERE, null, ex);
     }
     return null;
+  }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<Categoria> lista){
+    String[] encabezados1 = {"Folio", "Nombre", "Descripción"};
+    DefaultTableModel dftModel1 = new DefaultTableModel(encabezados1, 0);
+    LinkedList<Categoria> listaCategoria = (LinkedList<Categoria>) lista;
+    for (Categoria cat : listaCategoria) {
+      dftModel1.addRow(new Object[]{
+        cat.getFolio(),
+        cat.getNombre(),
+        cat.getDescripcion()
+      });
+    }
+    return dftModel1;
   }
   
 }

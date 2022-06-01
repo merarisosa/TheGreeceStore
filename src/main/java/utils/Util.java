@@ -5,9 +5,14 @@
  */
 package utils;
 
+import dao.DAOGeneral;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,5 +44,24 @@ public final class Util {
   
   public static boolean validarRegex(String cadena, String regex){
     return true;
+  }
+  
+  public static void eliminarRegistro(JTable tabla, DAOGeneral controlador, JFrame contexto){
+    int filaSeleccionada = tabla.getSelectedRow();
+    if(filaSeleccionada == -1){
+      JOptionPane.showMessageDialog(contexto, "Seleccione una fila para realizar esta operación",
+            "Upsi!", JOptionPane.WARNING_MESSAGE);
+    }else{
+      String key = tabla.getValueAt(filaSeleccionada, 0).toString();
+      if(controlador.eliminar(key)){
+        DefaultTableModel dftable = (DefaultTableModel) tabla.getModel();
+        dftable.removeRow(filaSeleccionada);
+        JOptionPane.showMessageDialog(contexto, "Registro eliminado con éxito",
+              "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+      }else{
+        JOptionPane.showMessageDialog(contexto, "Algo salió mal, intente más tarde",
+              "Oh no!", JOptionPane.ERROR_MESSAGE);
+      }
+    }
   }
 }

@@ -377,7 +377,7 @@ public class Inventario_Agregar_Producto extends javax.swing.JFrame {
     private void regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresaActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin_Clientes().setVisible(true);
+        new Admin_Inventario().setVisible(true);
     }//GEN-LAST:event_regresaActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

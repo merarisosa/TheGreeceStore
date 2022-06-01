@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import modelo.DetalleVenta;
 import modelo.RolUsuario;
 import modelo.Usuario;
 import vista.Admin_Inventario;
@@ -114,5 +116,10 @@ public class ControlRolUsuario implements DAORolUsuario{
       Logger.getLogger(ControlUsuario.class.getName()).log(Level.SEVERE, null, ex);
     }  
     return null;
+  }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<RolUsuario> lista){
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 }

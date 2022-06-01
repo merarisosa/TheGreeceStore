@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
 import modelo.DetalleVenta;
 import modelo.Producto;
@@ -143,6 +144,11 @@ public class ControlDetalleVenta implements DAODetalleVenta{
       Logger.getLogger(ControlDetalleVenta.class.getName()).log(Level.SEVERE, null, ex);
     }
     return null;
+  }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<DetalleVenta> lista){
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
   
 }

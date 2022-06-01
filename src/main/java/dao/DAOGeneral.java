@@ -6,6 +6,7 @@
 package dao;
 
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,4 +20,5 @@ public interface DAOGeneral<T,K> {
   public boolean actualizar(T entidad);
   public boolean insertar(T entidad);
   public List<T> listarTodos();
+  public DefaultTableModel getTableModel(List<T> lista);
 }

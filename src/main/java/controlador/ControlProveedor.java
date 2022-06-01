@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.Proveedor;
 
 /**
@@ -164,6 +165,24 @@ public class ControlProveedor implements DAOProveedor{
       Logger.getLogger(ControlProveedor.class.getName()).log(Level.SEVERE, null, ex);
     }
     return null;
+  }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<Proveedor> lista){
+    String[] encabezados2 = {"Folio", "Nombre", "Descripción"};
+    DefaultTableModel dftModel2 = new DefaultTableModel(encabezados2, 0);
+    LinkedList<Proveedor> listaProveedor = (LinkedList<Proveedor>) lista;
+    for (Proveedor prov : listaProveedor) {
+      dftModel2.addRow(new Object[]{
+        prov.getRfc(),
+        prov.getNombre(),
+        prov.getContactoNombre(),
+        prov.getContactoDesc(),
+        prov.getTelefono(),
+        prov.getCorreo()
+      });
+    }
+    return dftModel2;
   }
   
 }

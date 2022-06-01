@@ -164,4 +164,9 @@ public class ControlUsuario implements DAOUsuario{
     }  
     return null;
   }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<Usuario> lista){
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
 }

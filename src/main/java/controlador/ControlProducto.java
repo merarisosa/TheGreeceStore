@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.Categoria;
 import modelo.Producto;
 import modelo.Proveedor;
@@ -152,6 +153,23 @@ public class ControlProducto implements DAOProducto{
       Logger.getLogger(ControlProducto.class.getName()).log(Level.SEVERE, null, ex);
     }
     return null;
+  }
+  
+  @Override
+  public DefaultTableModel getTableModel(List<Producto> lista){
+    String[] encabezados3 = {"Clave", "Nombre", "Medida", "Precio", "Cantidad"};
+    DefaultTableModel dftModel3 = new DefaultTableModel(encabezados3, 0);
+    LinkedList<Producto> listaProducto = (LinkedList<Producto>) lista;
+    for (Producto prod : listaProducto) {
+      dftModel3.addRow(new Object[]{
+        prod.getClave(),
+        prod.getNombre(),
+        prod.getMedidaDesc(),
+        prod.getPrecio(),
+        prod.getCantidad()
+      });
+    }
+    return dftModel3;
   }
   
 }
