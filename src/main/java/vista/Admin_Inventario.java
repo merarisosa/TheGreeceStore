@@ -7,6 +7,11 @@ package vista;
 import controlador.ControlCategoria;
 import controlador.ControlProducto;
 import controlador.ControlProveedor;
+import java.util.LinkedList;
+import java.util.List;
+import modelo.Categoria;
+import modelo.Producto;
+import modelo.Proveedor;
 import utils.Util;
 
 /**
@@ -14,6 +19,10 @@ import utils.Util;
  * @author merarimaysosa
  */
 public class Admin_Inventario extends javax.swing.JFrame {
+  
+  private List<Categoria> categorias;
+  private List<Proveedor> proveedores;
+  private List<Producto> productos;
 
     /**
      * Creates new form Admin_Usuarios
@@ -25,15 +34,18 @@ public class Admin_Inventario extends javax.swing.JFrame {
         
         //Categoria
         ControlCategoria categoria = new ControlCategoria();
-        this.jTable1.setModel(categoria.getTableModel(categoria.listarTodos()));
+        categorias = categoria.listarTodos();
+        this.jTable1.setModel(categoria.getTableModel(categorias));
         
         //Proveedor
         ControlProveedor proveedor = new ControlProveedor();
-        this.jTable2.setModel(proveedor.getTableModel(proveedor.listarTodos()));
+        proveedores = proveedor.listarTodos();
+        this.jTable2.setModel(proveedor.getTableModel(proveedores));
         
         //Producto
         ControlProducto producto = new ControlProducto();
-        this.jTable3.setModel(producto.getTableModel(producto.listarTodos()));
+        productos = producto.listarTodos();
+        this.jTable3.setModel(producto.getTableModel(productos));
     }
 
     /**
@@ -320,6 +332,33 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        int indexTab = this.pestañas_grupo.getSelectedIndex();
+        switch(indexTab){
+        case 0:
+          String match1 = this.busq.getText().trim();
+          List<Categoria> busqueda1 = new LinkedList<>(this.categorias.stream()
+                  .filter(cat -> cat.getNombre().contains(match1))
+                  .toList());
+          ControlCategoria categoria = new ControlCategoria();
+          Util.renderizarTabla(jTable1, this, busq, categorias, busqueda1, match1, categoria);
+          break;
+        case 1:
+          String match2 = this.busq.getText().trim();
+          List<Proveedor> busqueda2 = new LinkedList<>(this.proveedores.stream()
+                  .filter(prov -> prov.getNombre().contains(match2))
+                  .toList());
+          ControlProveedor proveedor = new ControlProveedor();
+          Util.renderizarTabla(jTable2, this, busq, proveedores, busqueda2, match2, proveedor);
+          break;
+        case 2:
+          String match3 = this.busq.getText().trim();
+          List<Producto> busqueda3 = new LinkedList<>(this.productos.stream()
+                  .filter(prod -> prod.getNombre().contains(match3))
+                  .toList());
+          ControlProducto producto = new ControlProducto();
+          Util.renderizarTabla(jTable3, this, busq, productos, busqueda3, match3, producto);
+          break;
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

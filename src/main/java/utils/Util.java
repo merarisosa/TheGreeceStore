@@ -9,9 +9,11 @@ import dao.DAOGeneral;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -62,6 +64,26 @@ public final class Util {
         JOptionPane.showMessageDialog(contexto, "Algo salió mal, intente más tarde",
               "Oh no!", JOptionPane.ERROR_MESSAGE);
       }
+    }
+  }
+  
+  public static void renderizarTabla(JTable tabla, JFrame contexto, JTextField buscador,
+          List todos, List filtro, String match, DAOGeneral controlador){
+    if(match.length() > 0){
+      if(filtro.isEmpty()){
+        JOptionPane.showMessageDialog(contexto, "Se encontraron cero coincidencias",
+              "Upsi!", JOptionPane.WARNING_MESSAGE);
+            tabla.setModel(controlador.getTableModel(todos));
+            buscador.setText("");
+      }else{
+        System.out.println("L");
+        tabla.setModel(controlador.getTableModel(filtro));
+        System.out.println("F");
+      }
+    }else{
+      JOptionPane.showMessageDialog(contexto, "El buscador está vacío. Por favor, llénelo.",
+              "Upsi!", JOptionPane.WARNING_MESSAGE);
+      tabla.setModel(controlador.getTableModel(todos));
     }
   }
 }

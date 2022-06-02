@@ -104,7 +104,6 @@ public class ControlCategoria implements DAOCategoria{
 
   @Override
   public List<Categoria> listarTodos() {
-    
     try {
       LinkedList<Categoria> lista = new LinkedList<>();
       Conexion conexion = new Conexion();
