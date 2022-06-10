@@ -87,7 +87,7 @@ public class ControlProveedor implements DAOProveedor{
         + "Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
         + "Prov_ContactoDescripcion = '" + entidad.getContactoDesc() + "', "
         + "Prov_Correo = '" + entidad.getCorreo() + "', "
-        + "Prov_Telefono = '" + entidad.getTelefono() + "', "
+        + "Prov_Telefono = '" + entidad.getTelefono() + "' "
         + "WHERE Prov_RFC = '" + entidad.getRfc() + "'");
       con.close();
       return true;

@@ -45,8 +45,6 @@ public class Inventario_Agregar_Categoria extends javax.swing.JFrame {
     regresa = new javax.swing.JButton();
     jLabel2 = new javax.swing.JLabel();
     data = new javax.swing.JPanel();
-    jLabel5 = new javax.swing.JLabel();
-    jTextField1 = new javax.swing.JTextField();
     jLabel6 = new javax.swing.JLabel();
     jTextField2 = new javax.swing.JTextField();
     jLabel7 = new javax.swing.JLabel();
@@ -163,9 +161,6 @@ public class Inventario_Agregar_Categoria extends javax.swing.JFrame {
     data.setBackground(new java.awt.Color(204, 204, 255));
     data.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 3));
 
-    jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-    jLabel5.setText("Folio:");
-
     jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
     jLabel6.setText("Nombre:");
 
@@ -182,42 +177,33 @@ public class Inventario_Agregar_Categoria extends javax.swing.JFrame {
       dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(dataLayout.createSequentialGroup()
         .addGap(33, 33, 33)
+        .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+          .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+          .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+        .addGap(31, 31, 31))
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataLayout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addGroup(dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(dataLayout.createSequentialGroup()
-            .addGap(50, 50, 50)
-            .addComponent(jLabel5)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING))
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataLayout.createSequentialGroup()
             .addComponent(jLabel6)
-            .addGap(36, 36, 36))
+            .addGap(80, 80, 80))
           .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dataLayout.createSequentialGroup()
             .addComponent(jLabel7)
-            .addGap(27, 27, 27)))
-        .addGap(31, 31, 31))
+            .addGap(63, 63, 63))))
     );
     dataLayout.setVerticalGroup(
       dataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(dataLayout.createSequentialGroup()
-        .addGap(25, 25, 25)
-        .addComponent(jLabel5)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
+        .addGap(76, 76, 76)
         .addComponent(jLabel6)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
+        .addGap(30, 30, 30)
         .addComponent(jLabel7)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(31, Short.MAX_VALUE))
+        .addContainerGap(62, Short.MAX_VALUE))
     );
-
-    dataLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField2});
 
     divs.add(data);
 
@@ -321,12 +307,10 @@ public class Inventario_Agregar_Categoria extends javax.swing.JFrame {
   private javax.swing.JPanel imgs;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
-  private javax.swing.JLabel jLabel5;
   private javax.swing.JLabel jLabel6;
   private javax.swing.JLabel jLabel7;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea jTextArea1;
-  private javax.swing.JTextField jTextField1;
   private javax.swing.JTextField jTextField2;
   private javax.swing.JPanel panel;
   private javax.swing.JButton regresa;

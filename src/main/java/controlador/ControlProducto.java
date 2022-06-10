@@ -80,7 +80,7 @@ public class ControlProducto implements DAOProducto {
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE producto Prod_Numbre = '" + entidad.getNombre() + "', "
+      stmt.executeUpdate("UPDATE producto SET Prod_Nombre = '" + entidad.getNombre() + "', "
               + "Prod_MedidaDescripcion = '" + entidad.getMedidaDesc()+ "', "
               + "Prod_Precio = '" + entidad.getPrecio() + "', "
               + "Prod_Cantidad = '" + entidad.getCantidad() + "', "
@@ -106,13 +106,13 @@ public class ControlProducto implements DAOProducto {
       stmt.executeUpdate("INSERT INTO producto "
               + "VALUES ('" + entidad.getClave() + "', "
               + "'" + entidad.getNombre() + "', "
+              + "'" + entidad.getProveedor().getRfc() + "', "
+              + "'" + entidad.getCategoria().getFolio() + "',"
               + "'" + entidad.getMedidaDesc() + "', "
               + "'" + entidad.getPrecio() + "', "
               + "'" + entidad.getCantidad() + "', "
               + "'" + entidad.getLimiteStock() + "', "
-              + "'" + entidad.getDescontinuado() + "', "
-              + "'" + entidad.getProveedor().getRfc() + "', "
-              + "'" + entidad.getCategoria().getFolio() + "')"
+              + "'" + entidad.getDescontinuado() + "') "
       );
       con.close();
       return true;
