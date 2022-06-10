@@ -9,6 +9,7 @@ import controlador.ControlProducto;
 import controlador.ControlProveedor;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.Categoria;
 import modelo.Producto;
 import modelo.Proveedor;
@@ -93,6 +94,11 @@ public class Admin_Inventario extends javax.swing.JFrame {
     });
 
     actualizar.setText("Actualizar");
+    actualizar.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        actualizarActionPerformed(evt);
+      }
+    });
 
     agregar.setText("Agregar");
     agregar.addActionListener(new java.awt.event.ActionListener() {
@@ -404,6 +410,81 @@ public class Admin_Inventario extends javax.swing.JFrame {
         break;
     }
   }//GEN-LAST:event_eliminarActionPerformed
+
+  private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+    // TODO add your handling code here:}
+    int indexTab = this.pestañas_grupo.getSelectedIndex();
+    switch(indexTab){
+      case 0:
+        int filaSeleccionada1 = this.jTable1.getSelectedRow();
+        if (filaSeleccionada1 == -1) {
+          JOptionPane.showMessageDialog(this, "Seleccione una fila para realizar esta operación",
+            "Upsi!", JOptionPane.WARNING_MESSAGE);
+        } else {
+          String folioCat = this.jTable1.getValueAt(filaSeleccionada1, 0).toString();
+          String nombreCat = this.jTable1.getValueAt(filaSeleccionada1, 1).toString();
+          String descrip = this.jTable1.getValueAt(filaSeleccionada1, 2).toString();
+
+          Categoria cat = new Categoria(folioCat, nombreCat, descrip);
+          ControlCategoria categoria = new ControlCategoria();
+          if (categoria.actualizar(cat)) {
+            JOptionPane.showMessageDialog(this, "Categoria actualizada con éxito",
+              "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+          } else {
+            JOptionPane.showMessageDialog(this, "Algo salió mal, intente más tarde",
+              "Oh no!", JOptionPane.ERROR_MESSAGE);
+          }
+        }
+        break;
+      case 1:
+        int filaSeleccionada2 = this.jTable2.getSelectedRow();
+        if (filaSeleccionada2 == -1) {
+          JOptionPane.showMessageDialog(this, "Seleccione una fila para realizar esta operación",
+            "Upsi!", JOptionPane.WARNING_MESSAGE);
+        } else {
+          String rfc = this.jTable2.getValueAt(filaSeleccionada2, 0).toString();
+          String nombreProv = this.jTable2.getValueAt(filaSeleccionada2, 1).toString();
+          String contactoNombre = this.jTable2.getValueAt(filaSeleccionada2, 2).toString();
+          String contactoDesc = this.jTable2.getValueAt(filaSeleccionada2, 3).toString();
+          String telefono = this.jTable2.getValueAt(filaSeleccionada2, 4).toString();
+          String correo = this.jTable2.getValueAt(filaSeleccionada2, 5).toString();
+          Proveedor prov = new Proveedor(rfc,nombreProv,contactoNombre,contactoDesc,correo,telefono);
+          ControlProveedor proveedor = new ControlProveedor();
+          if (proveedor.actualizar(prov)) {
+            JOptionPane.showMessageDialog(this, "Proveedor actualizado con éxito",
+              "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+          } else {
+            JOptionPane.showMessageDialog(this, "Algo salió mal, intente más tarde",
+              "Oh no!", JOptionPane.ERROR_MESSAGE);
+          }
+        }
+        break;
+      case 2:
+        int filaSeleccionada3 = this.jTable3.getSelectedRow();
+        if (filaSeleccionada3 == -1) {
+          JOptionPane.showMessageDialog(this, "Seleccione una fila para realizar esta operación",
+            "Upsi!", JOptionPane.WARNING_MESSAGE);
+        } else {
+          String clavePrd = this.jTable3.getValueAt(filaSeleccionada3, 0).toString();
+          String nombre = this.jTable3.getValueAt(filaSeleccionada3, 1).toString();
+          String medida = this.jTable3.getValueAt(filaSeleccionada3, 2).toString();
+          String precio = this.jTable3.getValueAt(filaSeleccionada3, 3).toString();
+          String cantidad = this.jTable3.getValueAt(filaSeleccionada3, 4).toString();
+          Producto prod = new Producto(clavePrd, nombre, medida, 
+                  Double.parseDouble(precio), 
+                  Integer.parseInt(cantidad));
+          ControlProducto producto = new ControlProducto();
+          if (producto.actualizar(prod)) {
+            JOptionPane.showMessageDialog(this, "Producto actualizado con éxito",
+              "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+          } else {
+            JOptionPane.showMessageDialog(this, "Algo salió mal, intente más tarde",
+              "Oh no!", JOptionPane.ERROR_MESSAGE);
+          }
+        }
+        break;
+    }
+  }//GEN-LAST:event_actualizarActionPerformed
 
     /**
      * @param args the command line arguments

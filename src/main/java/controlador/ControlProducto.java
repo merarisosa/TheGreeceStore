@@ -157,7 +157,7 @@ public class ControlProducto implements DAOProducto{
   
   @Override
   public DefaultTableModel getTableModel(List<Producto> lista){
-    String[] encabezados3 = {"Clave", "Nombre", "Medida", "Precio", "Cantidad"};
+    String[] encabezados3 = {"Clave", "Nombre", "Medida", "Precio", "Existencias", "Cantidad mínima", "¿Descontinuado?"};
     DefaultTableModel dftModel3 = new DefaultTableModel(encabezados3, 0);
     LinkedList<Producto> listaProducto = (LinkedList<Producto>) lista;
     for (Producto prod : listaProducto) {
@@ -166,7 +166,9 @@ public class ControlProducto implements DAOProducto{
         prod.getNombre(),
         prod.getMedidaDesc(),
         prod.getPrecio(),
-        prod.getCantidad()
+        prod.getCantidad(),
+        prod.getLimiteStock(),
+        prod.getDescontinuado()
       });
     }
     return dftModel3;

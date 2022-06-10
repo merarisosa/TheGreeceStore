@@ -40,6 +40,15 @@ public class Proveedor {
     this.sitioWeb = sitioWeb;
   }
 
+  public Proveedor(String rfc, String nombre, String contactoNombre, String contactoDesc, String correo, String telefono) {
+    this.rfc = rfc;
+    this.nombre = nombre;
+    this.contactoNombre = contactoNombre;
+    this.contactoDesc = contactoDesc;
+    this.correo = correo;
+    this.telefono = telefono;
+  }
+
   public Proveedor(String rfc) {
     this.rfc = rfc;
   }

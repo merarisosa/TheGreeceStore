@@ -82,17 +82,11 @@ public class ControlProveedor implements DAOProveedor{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE proveedor SET Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
+      stmt.executeUpdate("UPDATE proveedor SET "
+        + "Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
         + "Prov_ContactoDescripcion = '" + entidad.getContactoDesc() + "', "
-        + "Prov_Calle = '" + entidad.getCalle() + "', "
-        + "Prov_NumExt = '" + entidad.getNumExt() + "', "
-        + "Prov_NumInt = '" + entidad.getNumInt() + "', "
-        + "Prov_Estado = '" + entidad.getEstado() + "', "
-        + "Prov_Ciudad = '" + entidad.getCiudad() + "', "
-        + "Prov_CP = '" + entidad.getCp() + "', "
         + "Prov_Correo = '" + entidad.getCorreo() + "', "
         + "Prov_Telefono = '" + entidad.getTelefono() + "', "
-        + "Prov_SitioWeb = '" + entidad.getSitioWeb() + "' "
         + "WHERE Prov_RFC = '" + entidad.getRfc() + "'");
       con.close();
       return true;
@@ -169,7 +163,7 @@ public class ControlProveedor implements DAOProveedor{
   
   @Override
   public DefaultTableModel getTableModel(List<Proveedor> lista){
-    String[] encabezados2 = {"Folio", "Nombre", "Descripción"};
+    String[] encabezados2 = {"Folio", "Nombre","Contacto", "Descripción", "Teléfono", "Correo"};
     DefaultTableModel dftModel2 = new DefaultTableModel(encabezados2, 0);
     LinkedList<Proveedor> listaProveedor = (LinkedList<Proveedor>) lista;
     for (Proveedor prov : listaProveedor) {
