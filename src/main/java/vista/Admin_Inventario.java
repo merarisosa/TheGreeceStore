@@ -470,9 +470,14 @@ public class Admin_Inventario extends javax.swing.JFrame {
           String medida = this.jTable3.getValueAt(filaSeleccionada3, 2).toString();
           String precio = this.jTable3.getValueAt(filaSeleccionada3, 3).toString();
           String cantidad = this.jTable3.getValueAt(filaSeleccionada3, 4).toString();
+          String limiteStock = this.jTable3.getValueAt(filaSeleccionada3, 5).toString();
+          String descontinuado = this.jTable3.getValueAt(filaSeleccionada3, 5).toString();
           Producto prod = new Producto(clavePrd, nombre, medida, 
                   Double.parseDouble(precio), 
-                  Integer.parseInt(cantidad));
+                  Integer.parseInt(cantidad),
+                  Integer.parseInt(limiteStock),
+                  Short.parseShort(descontinuado)
+          );
           ControlProducto producto = new ControlProducto();
           if (producto.actualizar(prod)) {
             JOptionPane.showMessageDialog(this, "Producto actualizado con éxito",

@@ -32,12 +32,14 @@ public class Producto {
     this.categoria = categoria;
   }
 
-  public Producto(String clave, String nombre, String medidaDesc, double precio, int cantidad) {
+  public Producto(String clave, String nombre, String medidaDesc, double precio, int cantidad, int limiteStock, short descontinuado) {
     this.clave = clave;
     this.nombre = nombre;
     this.medidaDesc = medidaDesc;
     this.precio = precio;
     this.cantidad = cantidad;
+    this.limiteStock = limiteStock;
+    this.descontinuado = descontinuado;
   }
 
   public Producto(String clave) {

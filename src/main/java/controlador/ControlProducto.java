@@ -24,7 +24,7 @@ import modelo.Proveedor;
  *
  * @author cocol
  */
-public class ControlProducto implements DAOProducto{
+public class ControlProducto implements DAOProducto {
 
   @Override
   public Producto consultar(String id) {
@@ -37,15 +37,15 @@ public class ControlProducto implements DAOProducto{
       ResultSet resultado = stmt.executeQuery("SELECT * FROM producto WHERE Prod_Clave='" + id + "'");
       if (resultado.next()) {
         return new Producto(
-          id,
-          resultado.getString("Prod_Nombre"),
-          resultado.getString("Prod_MedidaDescripcion"),
-          resultado.getDouble("Prod_Precio"),
-          resultado.getInt("Prod_Cantidad"),
-          resultado.getInt("Prod_LimiteStock"),
-          resultado.getShort("Prod_Descontinuado"),
-          new Proveedor(resultado.getString("Prov_RFC")),
-          new Categoria(resultado.getString("Cat_Folio"))
+                id,
+                resultado.getString("Prod_Nombre"),
+                resultado.getString("Prod_MedidaDescripcion"),
+                resultado.getDouble("Prod_Precio"),
+                resultado.getInt("Prod_Cantidad"),
+                resultado.getInt("Prod_LimiteStock"),
+                resultado.getShort("Prod_Descontinuado"),
+                new Proveedor(resultado.getString("Prov_RFC")),
+                new Categoria(resultado.getString("Cat_Folio"))
         );
       }
       con.close();
@@ -80,11 +80,13 @@ public class ControlProducto implements DAOProducto{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE producto SET Prod_Precio = '" + entidad.getPrecio() + "', "
-        + "Prod_Cantidad = '" + entidad.getCantidad() + "', "
-        + "Prod_LimiteStock = '" + entidad.getLimiteStock() + "', "
-        + "Prod_Descontinuado = '" + entidad.getDescontinuado() + "' "
-        + "WHERE Prod_Clave = '" + entidad.getClave() + "'");
+      stmt.executeUpdate("UPDATE producto Prod_Numbre = '" + entidad.getNombre() + "', "
+              + "Prod_MedidaDescripcion = '" + entidad.getMedidaDesc()+ "', "
+              + "Prod_Precio = '" + entidad.getPrecio() + "', "
+              + "Prod_Cantidad = '" + entidad.getCantidad() + "', "
+              + "Prod_LimiteStock = '" + entidad.getLimiteStock() + "', "
+              + "Prod_Descontinuado = '" + entidad.getDescontinuado() + "' "
+              + "WHERE Prod_Clave = '" + entidad.getClave() + "'");
       con.close();
       return true;
     } catch (SQLException ex) {
@@ -102,15 +104,15 @@ public class ControlProducto implements DAOProducto{
       Statement stmt;
       stmt = con.createStatement();
       stmt.executeUpdate("INSERT INTO producto "
-        + "VALUES ('" + entidad.getClave() + "', "
-        + "'" + entidad.getNombre() + "', "
-        + "'" + entidad.getMedidaDesc() + "', "
-        + "'" + entidad.getPrecio() + "', "
-        + "'" + entidad.getCantidad() + "', "
-        + "'" + entidad.getLimiteStock() + "', "
-        + "'" + entidad.getDescontinuado() + "', "
-        + "'" + entidad.getProveedor().getRfc() + "', "
-        + "'" + entidad.getCategoria().getFolio() + "')"
+              + "VALUES ('" + entidad.getClave() + "', "
+              + "'" + entidad.getNombre() + "', "
+              + "'" + entidad.getMedidaDesc() + "', "
+              + "'" + entidad.getPrecio() + "', "
+              + "'" + entidad.getCantidad() + "', "
+              + "'" + entidad.getLimiteStock() + "', "
+              + "'" + entidad.getDescontinuado() + "', "
+              + "'" + entidad.getProveedor().getRfc() + "', "
+              + "'" + entidad.getCategoria().getFolio() + "')"
       );
       con.close();
       return true;
@@ -132,19 +134,19 @@ public class ControlProducto implements DAOProducto{
       ResultSet resultado = stmt.executeQuery("SELECT * FROM producto");
       while (resultado.next()) {
         lista.add(new Producto(
-          resultado.getString("Prod_Clave"),
-          resultado.getString("Prod_Nombre"),
-          resultado.getString("Prod_MedidaDescripcion"),
-          resultado.getDouble("Prod_Precio"),
-          resultado.getInt("Prod_Cantidad"),
-          resultado.getInt("Prod_LimiteStock"),
-          resultado.getShort("Prod_Descontinuado"),
-          new Proveedor(
-            resultado.getString("Prov_RFC")
-          ),
-          new Categoria(
-            resultado.getString("Cat_folio")
-          )
+                resultado.getString("Prod_Clave"),
+                resultado.getString("Prod_Nombre"),
+                resultado.getString("Prod_MedidaDescripcion"),
+                resultado.getDouble("Prod_Precio"),
+                resultado.getInt("Prod_Cantidad"),
+                resultado.getInt("Prod_LimiteStock"),
+                resultado.getShort("Prod_Descontinuado"),
+                new Proveedor(
+                        resultado.getString("Prov_RFC")
+                ),
+                new Categoria(
+                        resultado.getString("Cat_folio")
+                )
         ));
       }
       con.close();
@@ -154,11 +156,16 @@ public class ControlProducto implements DAOProducto{
     }
     return null;
   }
-  
+
   @Override
-  public DefaultTableModel getTableModel(List<Producto> lista){
+  public DefaultTableModel getTableModel(List<Producto> lista) {
     String[] encabezados3 = {"Clave", "Nombre", "Medida", "Precio", "Existencias", "Cantidad mínima", "¿Descontinuado?"};
-    DefaultTableModel dftModel3 = new DefaultTableModel(encabezados3, 0);
+    DefaultTableModel dftModel3 = new DefaultTableModel(encabezados3, 0) {
+      @Override
+      public boolean isCellEditable(int row, int column) {
+        return column > 0;
+      }
+    };
     LinkedList<Producto> listaProducto = (LinkedList<Producto>) lista;
     for (Producto prod : listaProducto) {
       dftModel3.addRow(new Object[]{
@@ -173,5 +180,5 @@ public class ControlProducto implements DAOProducto{
     }
     return dftModel3;
   }
-  
+
 }

@@ -72,7 +72,8 @@ public class ControlCategoria implements DAOCategoria{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      stmt.executeUpdate("UPDATE categoria SET Cat_Descripcion = '" + entidad.getDescripcion() + "'"
+      stmt.executeUpdate("UPDATE categoria SET Cat_Nombre = '"+ entidad.getNombre() +"',"
+              + "Cat_Descripcion = '" + entidad.getDescripcion() + "'"
         + "WHERE Cat_Folio = '" + entidad.getFolio() + "'");
       con.close();
       return true;
@@ -129,7 +130,12 @@ public class ControlCategoria implements DAOCategoria{
   @Override
   public DefaultTableModel getTableModel(List<Categoria> lista){
     String[] encabezados1 = {"Folio", "Nombre", "Descripción"};
-    DefaultTableModel dftModel1 = new DefaultTableModel(encabezados1, 0);
+    DefaultTableModel dftModel1 = new DefaultTableModel(encabezados1, 0){
+      @Override
+      public boolean isCellEditable(int row, int column) {
+        return column > 0;
+      }
+    };
     LinkedList<Categoria> listaCategoria = (LinkedList<Categoria>) lista;
     for (Categoria cat : listaCategoria) {
       dftModel1.addRow(new Object[]{

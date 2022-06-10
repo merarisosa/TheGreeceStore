@@ -83,6 +83,7 @@ public class ControlProveedor implements DAOProveedor{
       Statement stmt;
       stmt = con.createStatement();
       stmt.executeUpdate("UPDATE proveedor SET "
+        + "Prov_Nombre = '" + entidad.getNombre()+ "', "
         + "Prov_ContactoNombre = '" + entidad.getContactoNombre() + "', "
         + "Prov_ContactoDescripcion = '" + entidad.getContactoDesc() + "', "
         + "Prov_Correo = '" + entidad.getCorreo() + "', "
@@ -164,7 +165,12 @@ public class ControlProveedor implements DAOProveedor{
   @Override
   public DefaultTableModel getTableModel(List<Proveedor> lista){
     String[] encabezados2 = {"Folio", "Nombre","Contacto", "Descripción", "Teléfono", "Correo"};
-    DefaultTableModel dftModel2 = new DefaultTableModel(encabezados2, 0);
+    DefaultTableModel dftModel2 = new DefaultTableModel(encabezados2, 0){
+      @Override
+      public boolean isCellEditable(int row, int column) {
+        return column > 0;
+      }
+    };
     LinkedList<Proveedor> listaProveedor = (LinkedList<Proveedor>) lista;
     for (Proveedor prov : listaProveedor) {
       dftModel2.addRow(new Object[]{
