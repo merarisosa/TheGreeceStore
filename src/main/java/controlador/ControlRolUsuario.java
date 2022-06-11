@@ -103,7 +103,7 @@ public class ControlRolUsuario implements DAORolUsuario{
       Connection con = conexion.getCon();
       Statement stmt;
       stmt = con.createStatement();
-      ResultSet resultado = stmt.executeQuery("SELECT * FROM Rol_usuario");
+      ResultSet resultado = stmt.executeQuery("SELECT * FROM Rol_Usuario");
       while(resultado.next()){
         lista.add(new RolUsuario(
           resultado.getString("RolUsu_Folio"),
