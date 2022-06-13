@@ -296,6 +296,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Reportes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ver_reportActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="logo_repor">
                   <Properties>

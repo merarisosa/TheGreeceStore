@@ -5,6 +5,7 @@
 package vista;
 
 import controlador.ControlProveedor;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Proveedor;
 
@@ -13,12 +14,13 @@ import modelo.Proveedor;
  * @author merarimaysosa
  */
 public class Inventario_Agregar_Proveedor extends javax.swing.JFrame {
-
+    private JFrame anterior;
     /**
      * Creates new form Usuarios_Agregar
      */
-    public Inventario_Agregar_Proveedor() {
+    public Inventario_Agregar_Proveedor(JFrame anterior) {
         initComponents();
+        this.anterior = anterior;
         this.setLocationRelativeTo(null);
         this.setResizable(false);
     }
@@ -379,7 +381,7 @@ public class Inventario_Agregar_Proveedor extends javax.swing.JFrame {
     private void regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresaActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new Admin_Inventario().setVisible(true);
+        anterior.setVisible(true);
     }//GEN-LAST:event_regresaActionPerformed
 
   private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed

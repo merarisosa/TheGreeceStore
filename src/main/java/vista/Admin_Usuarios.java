@@ -9,6 +9,7 @@ import controlador.ControlUsuario;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.RolUsuario;
@@ -22,12 +23,14 @@ import utils.Util;
 public class Admin_Usuarios extends javax.swing.JFrame {
 
   private List<Usuario> usuarios;
+  private JFrame anterior;
 
   /**
    * Creates new form Admin_Usuarios
    */
-  public Admin_Usuarios() {
+  public Admin_Usuarios(JFrame anterior) {
     initComponents();
+    this.anterior = anterior;
     this.setResizable(false);
     this.setLocationRelativeTo(null);
     ControlUsuario usuario = new ControlUsuario();
@@ -245,13 +248,13 @@ public class Admin_Usuarios extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
       // TODO add your handling code here:
-//        this.setVisible(false);
-//        new Login_Admin().setVisible(true);
+        this.setVisible(false);
+        anterior.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
       // TODO add your handling code here:
-      Usuarios_Agregar ventana = new Usuarios_Agregar();
+      Usuarios_Agregar ventana = new Usuarios_Agregar(this);
       this.setVisible(false);
       ventana.setVisible(true);
     }//GEN-LAST:event_agregarActionPerformed

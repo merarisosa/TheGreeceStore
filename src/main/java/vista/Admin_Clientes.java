@@ -182,8 +182,8 @@ public class Admin_Clientes extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Usuarios_Agregar().setVisible(true);
+//        this.setVisible(false);
+//        new Usuarios_Agregar().setVisible(true);
     }//GEN-LAST:event_agregarActionPerformed
 
     /**

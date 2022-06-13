@@ -44,10 +44,10 @@ public class ControlRolUsuario implements DAORolUsuario{
         siguiente = new Vendedor_Ventas();
         break;
       case "ROL-00003":
-        siguiente = new Admin_Inventario();
+        siguiente = new Admin_Inventario(anterior);
         break;
       case "ROL-00004":
-        siguiente = new Admin_Reportes();
+        siguiente = new Admin_Reportes(anterior);
         break;
       default:
         siguiente = new Login();

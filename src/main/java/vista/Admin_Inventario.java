@@ -9,6 +9,7 @@ import controlador.ControlProducto;
 import controlador.ControlProveedor;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Categoria;
 import modelo.Producto;
@@ -24,12 +25,15 @@ public class Admin_Inventario extends javax.swing.JFrame {
   private List<Categoria> categorias;
   private List<Proveedor> proveedores;
   private List<Producto> productos;
+  private JFrame anterior;
 
     /**
      * Creates new form Admin_Usuarios
+   * @param anterior
      */
-    public Admin_Inventario() {
+    public Admin_Inventario(JFrame anterior) {
         initComponents();
+        this.anterior = anterior;
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
@@ -369,8 +373,8 @@ public class Admin_Inventario extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         // TODO add your handling code here:
-//        this.setVisible(false);
-//        new Login_Admin().setVisible(true);
+        this.setVisible(false);
+        anterior.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
@@ -378,17 +382,17 @@ public class Admin_Inventario extends javax.swing.JFrame {
         int indexTab = this.pestañas_grupo.getSelectedIndex();
         switch(indexTab){
           case 0:
-            Inventario_Agregar_Categoria categoria = new Inventario_Agregar_Categoria();
+            Inventario_Agregar_Categoria categoria = new Inventario_Agregar_Categoria(this);
             this.setVisible(false);
             categoria.setVisible(true);
             break;
           case 1:
-            Inventario_Agregar_Proveedor proveedor = new Inventario_Agregar_Proveedor();
+            Inventario_Agregar_Proveedor proveedor = new Inventario_Agregar_Proveedor(this);
             this.setVisible(false);
             proveedor.setVisible(true);
             break;
           case 2:
-            Inventario_Agregar_Producto producto = new Inventario_Agregar_Producto();
+            Inventario_Agregar_Producto producto = new Inventario_Agregar_Producto(this);
             this.setVisible(false);
             producto.setVisible(true);
             break;

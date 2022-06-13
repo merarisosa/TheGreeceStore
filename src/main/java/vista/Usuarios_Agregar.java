@@ -9,6 +9,7 @@ import controlador.ControlUsuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.RolUsuario;
 import modelo.Usuario;
@@ -19,12 +20,14 @@ import utils.Util;
  * @author merarimaysosa
  */
 public class Usuarios_Agregar extends javax.swing.JFrame {
-
+  private JFrame anterior;
   /**
    * Creates new form Usuarios_Agregar
+   * @param anterior
    */
-  public Usuarios_Agregar() {
+  public Usuarios_Agregar(JFrame anterior) {
     initComponents();
+    this.anterior = anterior;
     this.setLocationRelativeTo(null);
     this.setResizable(false);
     ControlRolUsuario rolUsuario = new ControlRolUsuario();
@@ -250,7 +253,7 @@ public class Usuarios_Agregar extends javax.swing.JFrame {
     private void regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresaActionPerformed
       // TODO add your handling code here:
       this.setVisible(false);
-      new Admin_Usuarios().setVisible(true);
+      anterior.setVisible(true);
     }//GEN-LAST:event_regresaActionPerformed
 
   private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed

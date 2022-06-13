@@ -10,6 +10,7 @@ import controlador.ControlProveedor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.Categoria;
 import modelo.Producto;
@@ -21,12 +22,14 @@ import utils.Util;
  * @author merarimaysosa
  */
 public class Inventario_Agregar_Producto extends javax.swing.JFrame {
-
+  private JFrame anterior;
   /**
    * Creates new form Usuarios_Agregar
+   * @param anterior
    */
-  public Inventario_Agregar_Producto() {
+  public Inventario_Agregar_Producto(JFrame anterior) {
     initComponents();
+    this.anterior = anterior;
     this.setLocationRelativeTo(null);
     this.setResizable(false);
 
@@ -352,8 +355,8 @@ public class Inventario_Agregar_Producto extends javax.swing.JFrame {
 
     private void regresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresaActionPerformed
       // TODO add your handling code here:
-      this.setVisible(false);
-      new Admin_Inventario().setVisible(true);
+       this.setVisible(false);
+       anterior.setVisible(true);
     }//GEN-LAST:event_regresaActionPerformed
 
   private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed

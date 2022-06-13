@@ -6,6 +6,7 @@ package vista;
 
 import controlador.ControlRolUsuario;
 import controlador.ControlUsuario;
+import java.awt.Dialog.ModalityType;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 

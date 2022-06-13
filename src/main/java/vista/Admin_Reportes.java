@@ -4,17 +4,21 @@
  */
 package vista;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author merarimaysosa
  */
 public class Admin_Reportes extends javax.swing.JFrame {
-
+    private JFrame anterior;
     /**
      * Creates new form Admin_Usuarios
+   * @param anterior
      */
-    public Admin_Reportes() {
+    public Admin_Reportes(JFrame anterior) {
         initComponents();
+        this.anterior = anterior;
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
@@ -222,8 +226,8 @@ public class Admin_Reportes extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         // TODO add your handling code here:
-//        this.setVisible(false);
-//        new Login_Admin().setVisible(true);
+        this.setVisible(false);
+        anterior.setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
     /**
