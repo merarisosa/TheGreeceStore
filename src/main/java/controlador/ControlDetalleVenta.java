@@ -7,6 +7,7 @@ package controlador;
 
 import dao.DAODetalleVenta;
 import database.Conexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -149,6 +150,29 @@ public class ControlDetalleVenta implements DAODetalleVenta{
   @Override
   public DefaultTableModel getTableModel(List<DetalleVenta> lista){
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+  
+  public boolean hacerCompra(DetalleVenta entidad){
+    try {
+      Conexion conexion = new Conexion();
+      conexion.conectar();
+      Connection con = conexion.getCon();
+      String query = "{call HacerCompra(?,?,?,?,?)}";
+      SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+      CallableStatement stmt;
+      stmt = con.prepareCall(query);
+      stmt.setString(1, entidad.getFolio());
+      stmt.setString(2, entidad.getProducto().getClave());
+      stmt.setInt(3, entidad.getCantidad());
+      stmt.setDouble(4, entidad.getDescuento());
+      stmt.setString(5, formato.format(entidad.getFechaReg()));
+      stmt.executeQuery();
+      con.close();
+      return true;
+    } catch (SQLException ex) {
+      Logger.getLogger(ControlDetalleVenta.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return false;
   }
   
 }

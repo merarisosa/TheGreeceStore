@@ -434,7 +434,7 @@ public class Vendedor_Ventas extends javax.swing.JFrame {
       this.ventaTotal.setText(String.valueOf(nuevoTotal));
       this.campoCambio.setText("");
       JOptionPane.showMessageDialog(this, "Actualización de venta realizada con éxito",
-                  "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+              "Eureka!", JOptionPane.INFORMATION_MESSAGE);
     }
   }//GEN-LAST:event_btnActualizarActionPerformed
 
@@ -464,11 +464,33 @@ public class Vendedor_Ventas extends javax.swing.JFrame {
   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
     int filas = this.tablaVenta.getModel().getRowCount();
-    if(filas > 0){
-      //STORED PROCEDURE
-    }else{
+    if (filas > 0) {
+      for (int fila = 0; fila < filas; fila++) {
+        String prodClave = this.tablaVenta.getValueAt(fila, 0).toString();
+        int cantidad = Integer.parseInt(this.tablaVenta.getValueAt(fila, 3).toString());
+        double descuento = Double.parseDouble(this.tablaVenta.getValueAt(fila, 4).toString());
+        try {
+          DetalleVenta ven = new DetalleVenta(
+                  this.campoFolio.getText(),
+                  new Producto(prodClave),
+                  cantidad,
+                  descuento,
+                  new SimpleDateFormat("YYY-MM-dd").parse(this.campoFecha.getText())
+          );
+          ControlDetalleVenta venta = new ControlDetalleVenta();
+          if (!venta.hacerCompra(ven)) {
+            JOptionPane.showMessageDialog(this, "Algo salió mal, intente más tarde",
+                    "Oh no!", JOptionPane.ERROR_MESSAGE);
+          }
+        } catch (ParseException ex) {
+          Logger.getLogger(Vendedor_Ventas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      JOptionPane.showMessageDialog(this, "Venta registrada con éxito",
+                    "Eureka!", JOptionPane.INFORMATION_MESSAGE);
+    } else {
       JOptionPane.showMessageDialog(this, "Necesita al menos un registro para finalizar la compra",
-                  "Alerta", JOptionPane.WARNING_MESSAGE);
+              "Alerta", JOptionPane.WARNING_MESSAGE);
     }
   }//GEN-LAST:event_jButton1ActionPerformed
 
